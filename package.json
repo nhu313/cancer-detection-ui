@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
+    "@aws-amplify/ui-angular": "^5.0.30",
     "aws-amplify": "^6.6.6",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -43,9 +44,8 @@
     "tsx": "^4.7.2",
     "typescript": "^5.4.5"
   },
-  "engines" : {
-    "npm" : ">=9.8.1",
-    "node" : ">=v18.18.2"
+  "engines": {
+    "npm": ">=9.8.1",
+    "node": ">=v18.18.2"
   }
-
 }
