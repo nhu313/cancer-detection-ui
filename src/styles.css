@@ -112,6 +112,9 @@ body > * {
     flex: 1 0 auto;
     background-color: #FaFafa;
     padding: 40px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   a {
