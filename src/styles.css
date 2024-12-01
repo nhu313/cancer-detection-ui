@@ -1,13 +1,37 @@
+html {
+  height: 100%;
+}
 body {
     margin: 0;
-    background-color:#005b6d;
+    /* background-color:#0d1b2a; */
+    background-color: #f2f3f4;
     display: flex;
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 20px;
     height: 100vh;
     width: 100vw;
     justify-content: center;
     align-items: center;
-  }
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    /* height: 100%; */
+    color: #fff;
+
+}
+app-root {
+  height: 100%;
+  background-color: #0d1b2a;
+}
+
+.amplify-button--primary {
+  background-color: #0d1b2a;
+}
+
+body > * {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 30ch;
+}
 
   main {
     display: flex;
@@ -22,14 +46,18 @@ body {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: #112D4E;
     cursor: pointer;
     transition: border-color 0.25s;
     color: white;
   }
-  button:hover {
-    border-color: #646cff;
+
+  button:hover, button:focus {
+    background-color: #dbdbdb;
+    color: #112D4E;
+    border: 1px solid #112D4E;
   }
+
   button:focus,
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
@@ -62,4 +90,55 @@ body {
   a {
     font-weight: 800;
     text-decoration: none;
+  }
+
+  .wrapper {
+    height: 100%;
+    display: flex;
+    color: #0d1b2a;
+  }
+
+.sidebar {
+    background-color: #f1f1f1;
+    border-right: 1px solid #efefef;
+    padding: 40px 30px;
+    min-width: 250px;
+    max-width: 350px;
+}
+
+.content {
+    flex-basis: 0;
+    flex-grow: 999;
+    flex: 1 0 auto;
+    background-color: #FaFafa;
+    padding: 40px 80px;
+  }
+
+  a {
+    font-weight: normal;
+    color: #0F4C75;
+    text-decoration: underline;
+  }
+
+  ul  {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+
+  li {
+    background-color: transparent;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 30px;
+  }
+
+  .sidebar li {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  li:hover {
+    background-color: #e0e0e0;
   }

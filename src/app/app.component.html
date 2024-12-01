@@ -1,13 +1,24 @@
-<amplify-authenticator>
+<amplify-authenticator [signUpAttributes]="['nickname']">
   <ng-template
     amplifySlot="authenticated"
     let-user="user"
     let-signOut="signOut"
   >
-    <p>Under construction!</p>
-    <br>
-    <img src="https://t4.ftcdn.net/jpg/00/38/16/79/360_F_38167962_DkB1lCSCeNXWfJ0Ibtl5RY62Uu6fFOhI.jpg" width="300">
-    <br>
-    <button (click)="signOut()">Sign Out</button>
+  <div class="d-flex align-items-stretch wrapper">
+    <div class="sidebar sidebar-dark">
+      Welcome!
+      <ul>
+        <li>Item 1 Item 1Item 1Item 1Item 1Item 1Item 1Item 1</li>
+        <li><a href="#" (click)="signOut()">Sign Out</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <p>Under construction!</p>
+      <br>
+      <img src="https://t4.ftcdn.net/jpg/00/38/16/79/360_F_38167962_DkB1lCSCeNXWfJ0Ibtl5RY62Uu6fFOhI.jpg" width="300">
+      <br>
+
+    </div>
+  </div>
   </ng-template>
 </amplify-authenticator>
