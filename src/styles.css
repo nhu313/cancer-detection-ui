@@ -155,3 +155,9 @@ body > * {
   .file-upload div {
     padding: 10px;
   }
+
+
+  .file-upload .alert {
+    margin-top: 10px;
+    margin-left: 10px;
+  }

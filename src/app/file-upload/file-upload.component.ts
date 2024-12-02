@@ -2,19 +2,20 @@ import { Component } from '@angular/core';
 import { generateClient } from "aws-amplify/api";
 import { uploadData, getUrl, UploadDataWithPathInput } from "aws-amplify/storage";
 import type { Schema } from "../../../amplify/data/resource";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { environment } from '../../environments/environment.development';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-file-upload',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './file-upload.component.html',
   styleUrl: './file-upload.component.css'
 })
 export class FileUploadComponent {
-  userFile = null;
-  status: "initial" | "uploading" | "success" | "fail" = "initial"; // Variable to store file status
+  errorMessage = '';
   file: File | null = null; // Variable to store file
 
   constructor(private http: HttpClient) {}
@@ -29,7 +30,6 @@ export class FileUploadComponent {
     const file: File = event.target.files[0];
 
     if (file) {
-      this.status = "initial";
       this.file = file;
     }
   }
@@ -40,16 +40,13 @@ export class FileUploadComponent {
 
       formData.append('file', this.file, this.file.name);
 
-      const upload$ = this.http.post("http://localhost:5000/api/process_image", formData);
+      this.http.post(environment.api_url + "/api/process_image", formData).subscribe({
+        next: (result) => {
+          console.log(result);
 
-      this.status = 'uploading';
-
-      upload$.subscribe({
-        next: () => {
-          this.status = 'success';
         },
-        error: (error: any) => {
-          this.status = 'fail';
+        error: (error: HttpErrorResponse) => {
+          this.errorMessage = error.statusText;
           console.log(error);
         },
       });
