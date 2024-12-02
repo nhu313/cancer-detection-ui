@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MyGaugeModule } from './my-gauge.module';
+import { environment } from '../../environments/environment.development';
 
 @Component({
   selector: 'app-image-result',
@@ -11,18 +12,22 @@ import { MyGaugeModule } from './my-gauge.module';
 export class ImageResultComponent {
   public value: number = 1;
   public category: number = 0;
-  @Input() result: any = {}
+  public imagePath: string = '#5ee432';
+  public color: string = '';
+  public percentage: string = '';
+  @Input() result: any = {category: 0, imagePath: ''}
 
-  constructor() {
-    this.category = 0;
-    this.value = this.category * 13;
+  constructor() {}
+
+  ngOnChanges(): void {
+    console.log(this.result);
+    this.imagePath = environment.api_url + '/' + this.result.file_path;
+    this.value = this.result.category * 13;
     if (this.value == 0) {
       this.value = 1; // add a little green
     }
-  }
-
-  ngOnInit(): void {
-    console.log(this.result);
+    this.color = this.gaugeColor();
+    this.percentage = this.getPercentage();
   }
 
   gaugeColor(): string {
@@ -38,21 +43,18 @@ export class ImageResultComponent {
   }
 
   getPercentage(): string {
-    if (this.category == undefined) {
-      this.category = 0;
-    }
-    return (this.category * 25) + '%';
+    return "";
   }
 
   resultLabel(): string {
-    if (this.category == undefined) {
-      this.category = 0;
+    if (this.result.category == undefined) {
+      this.result.category = 0;
     }
-    if (this.category == 0) {
+    if (this.result.category == 0) {
       return "No cancer detected!";
-    } else if (this.category == 1) {
+    } else if (this.result.category == 1) {
       return "Low cancer detected."
-    } else if (this.category == 2) {
+    } else if (this.result.category == 2) {
       return "Moderate cancer detected."
     } else {
       return "High cancer detected.";

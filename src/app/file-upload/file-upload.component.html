@@ -1,4 +1,5 @@
-<div class="file-upload">
+<div class="main-wrapper row">
+<div class="column file-upload">
   <h1>Blood Cancer Detection</h1>
   <p>This is a project created for CS-6440 Intro Health Informatics class. This application uses advanced neural networks and data augmentation techniques to analyze images and detect potential signs of cancer.</p>
   <p>The medical imaging prediction is made by a deep-wide convolutional neural network, which has been pre-trained on an augmented dataset. The Network is considered deep as it is 20 layers. The idea is that the wide layers at the top learn what features are unique in an image, while the deeper layers hone in and specialize on said features.</p>
@@ -17,6 +18,6 @@
         Error uploading file due to {{ errorMessage }}.
       </div>
   </div>
-  <app-image-result *ngIf="result" [result]="result"></app-image-result>
-
+</div>
+<app-image-result *ngIf="result" [result]="result" class="column"></app-image-result>
 </div>

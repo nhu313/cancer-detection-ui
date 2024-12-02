@@ -21,29 +21,9 @@ import { ImageResultComponent } from '../image-result/image-result.component';
 export class FileUploadComponent {
   errorMessage = '';
   file: File | null = null; // Variable to store file
-  userId: string = '';
   result: any | null = null;
 
   constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
-    this.getUserId();
-  }
-
-  async getUserId() {
-    try {
-      const { userId } = await getCurrentUser();
-      this.userId = userId;
-    } catch (error) {
-      console.error('Error fetching user ID:', error);
-    }
-  }
-
-  client() {
-    return generateClient<Schema>({
-      authMode: "apiKey",
-    });
-  }
 
   onChange(event: any) {
     const file: File = event.target.files[0];
@@ -62,8 +42,6 @@ export class FileUploadComponent {
       this.http.post(environment.api_url + "/api/process_image", formData).subscribe({
         next: (result) => {
           this.result = result;
-          console.log(result);
-          this.displayResult(result);
         },
         error: (error: HttpErrorResponse) => {
           this.errorMessage = error.statusText;
@@ -73,19 +51,19 @@ export class FileUploadComponent {
     }
   }
 
-  displayResult(result: any) {
-    console.log(typeof this.userId);
-    console.log(client.models);
-    try {
-      // client.models.ImageResult.create({
-      //   // userId: this.userId,
-      //   filePath: result.filePath,
-      //   fileName: result.fileName,
-      //   category: result.category,
-      // });
-      // // redirect
-    } catch (error) {
-      console.error('error saving result', error);
-    }
-  }
+  // displayResult(result: any) {
+  //   console.log(typeof this.userId);
+  //   console.log(client.models);
+  //   try {
+  //     // client.models.ImageResult.create({
+  //     //   // userId: this.userId,
+  //     //   filePath: result.filePath,
+  //     //   fileName: result.fileName,
+  //     //   category: result.category,
+  //     // });
+  //     // // redirect
+  //   } catch (error) {
+  //     console.error('error saving result', error);
+  //   }
+  // }
 }
