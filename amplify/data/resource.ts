@@ -12,7 +12,14 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization(allow => [allow.owner()]),
+  ImageResult: a.model({
+    fileName: a.string(),
+    filePath: a.string(),
+    category: a.integer(),
+    userId: a.string()
+  }).authorization(allow => [allow.owner()]),
 });
+
 
 export type Schema = ClientSchema<typeof schema>;
 
