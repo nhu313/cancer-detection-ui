@@ -76,13 +76,13 @@ export class FileUploadComponent {
     console.log(typeof this.userId);
     console.log(client.models);
     try {
-      client.models.ImageResult.create({
-        // userId: this.userId,
-        filePath: result.filePath,
-        fileName: result.fileName,
-        category: result.category,
-      });
-      // redirect
+      // client.models.ImageResult.create({
+      //   // userId: this.userId,
+      //   filePath: result.filePath,
+      //   fileName: result.fileName,
+      //   category: result.category,
+      // });
+      // // redirect
     } catch (error) {
       console.error('error saving result', error);
     }
