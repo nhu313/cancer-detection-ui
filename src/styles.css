@@ -107,14 +107,16 @@ body > * {
 }
 
 .content {
-    flex-basis: 0;
-    flex-grow: 999;
-    flex: 1 0 auto;
+    /* flex-basis: 0; */
+    /* flex-grow: 999;
+    flex: 1 0 auto; */
     background-color: #FaFafa;
     padding: 40px 80px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
+    text-wrap:wrap;
+    width: 100%;
   }
 
   a {
@@ -144,4 +146,12 @@ body > * {
 
   li:hover {
     background-color: #e0e0e0;
+  }
+
+  .file-upload {
+    max-width: 700px;
+  }
+
+  .file-upload div {
+    padding: 10px;
   }
