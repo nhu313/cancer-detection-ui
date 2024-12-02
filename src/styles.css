@@ -161,3 +161,75 @@ body > * {
     margin-top: 10px;
     margin-left: 10px;
   }
+
+  mwl-gauge {
+    width: 500px;
+    height: 500px;
+    display: block;
+    padding: 10px;
+    padding: 10px;
+    margin: 7px;
+    border-radius: 3px;
+  }
+
+  mwl-gauge > .gauge > .dial {
+    stroke: #000000;
+    stroke-width: 2;
+    fill: rgba(0, 0, 0, 0);
+  }
+  mwl-gauge > .gauge > .value {
+    stroke: rgb(255, 47, 47);
+    stroke-width: 2;
+    fill: rgba(0, 0, 0, 0);
+  }
+  mwl-gauge > .gauge > .value-text {
+    fill: rgb(47, 227, 255);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+  }
+
+ mwl-gauge > .label {
+    display: inline-block;
+    background: rgba(0,0,0,0.5);
+    font-family: monospace;
+    font-size: 0.8em;
+    padding: 5px 10px;
+  }
+
+  mwl-gauge > .gauge .dial {
+    stroke: #334455;
+    stroke-width: 2;
+    fill: rgba(0,0,0,0);
+  }
+
+ mwl-gauge > .gauge .dial {
+    stroke: #334455;
+    stroke-width: 6;
+  }
+ mwl-gauge > .gauge .value {
+    stroke: orange;
+    stroke-dasharray: none;
+    stroke-width: 10;
+  }
+ mwl-gauge > .gauge .value-text {
+    fill: #858585;
+    font-weight: 100;
+    font-size: 1em;
+  }
+
+.result {
+  display: block;
+  text-align: center;
+}
+
+  .result-value {
+    display: block;
+    color:#858585;
+    font-size: 45px;
+    font-weight: normal;
+  }
+
+  .result h1 {
+    font-size: 70px;
+  }

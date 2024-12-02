@@ -8,6 +8,8 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageResultComponent } from './image-result/image-result.component';
+import { GaugeModule } from 'angular-gauge';
+import { MyGaugeModule } from './image-result/my-gauge.module';
 
 
 Amplify.configure(outputs);
@@ -17,7 +19,7 @@ Amplify.configure(outputs);
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, TodosComponent, AmplifyAuthenticatorModule, FileUploadComponent, CommonModule, HttpClientModule, ImageResultComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, TodosComponent, AmplifyAuthenticatorModule, FileUploadComponent, CommonModule, HttpClientModule, ImageResultComponent, MyGaugeModule],
 })
 export class AppComponent {
   title = 'amplify-angular-template';

@@ -1,1 +1,16 @@
-<p>image-result works!</p>
+<div class="result">
+  <h1>Result</h1>
+  <h2 class="result-value">{{resultLabel()}}</h2>
+  <mwl-gauge
+        [max]="50"
+        [dialStartAngle]="180"
+        [dialEndAngle]="0"
+        [value]=value
+        [animated]="true"
+        [animationDuration]="1"
+        [color]="gaugeColor"
+        [label]="getPercentage"
+      >
+      </mwl-gauge>
+
+</div>
