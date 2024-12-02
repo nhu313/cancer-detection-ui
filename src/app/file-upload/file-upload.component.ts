@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { generateClient } from "aws-amplify/api";
-import { uploadData, getUrl, UploadDataWithPathInput } from "aws-amplify/storage";
 import type { Schema } from "../../../amplify/data/resource";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { environment } from '../../environments/environment.development';
@@ -9,12 +8,13 @@ import { CommonModule } from '@angular/common';
 const client = generateClient<Schema>();
 
 import { getCurrentUser } from 'aws-amplify/auth';
+import { ImageResultComponent } from '../image-result/image-result.component';
 
 
 @Component({
   selector: 'app-file-upload',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ImageResultComponent],
   templateUrl: './file-upload.component.html',
   styleUrl: './file-upload.component.css'
 })
@@ -22,7 +22,7 @@ export class FileUploadComponent {
   errorMessage = '';
   file: File | null = null; // Variable to store file
   userId: string = '';
-
+  result: any | null = null;
 
   constructor(private http: HttpClient) { }
 
@@ -61,8 +61,9 @@ export class FileUploadComponent {
 
       this.http.post(environment.api_url + "/api/process_image", formData).subscribe({
         next: (result) => {
+          this.result = result;
           console.log(result);
-          this.saveResult(result);
+          this.displayResult(result);
         },
         error: (error: HttpErrorResponse) => {
           this.errorMessage = error.statusText;
@@ -72,7 +73,7 @@ export class FileUploadComponent {
     }
   }
 
-  saveResult(result: any) {
+  displayResult(result: any) {
     console.log(typeof this.userId);
     console.log(client.models);
     try {

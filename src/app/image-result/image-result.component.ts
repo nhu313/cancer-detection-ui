@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MyGaugeModule } from './my-gauge.module';
-import { ReCaptchaEnterpriseProvider } from 'firebase/app-check';
 
 @Component({
   selector: 'app-image-result',
@@ -12,6 +11,7 @@ import { ReCaptchaEnterpriseProvider } from 'firebase/app-check';
 export class ImageResultComponent {
   public value: number = 1;
   public category: number = 0;
+  @Input() result: any = {}
 
   constructor() {
     this.category = 0;
@@ -19,6 +19,10 @@ export class ImageResultComponent {
     if (this.value == 0) {
       this.value = 1; // add a little green
     }
+  }
+
+  ngOnInit(): void {
+    console.log(this.result);
   }
 
   gaugeColor(): string {
