@@ -73,10 +73,11 @@ export class FileUploadComponent {
   }
 
   saveResult(result: any) {
+    console.log(typeof this.userId);
     console.log(client.models);
     try {
       client.models.ImageResult.create({
-        userId: this.userId,
+        // userId: this.userId,
         filePath: result.filePath,
         fileName: result.fileName,
         category: result.category,

@@ -16,7 +16,7 @@ const schema = a.schema({
     fileName: a.string(),
     filePath: a.string(),
     category: a.integer(),
-    userId: a.string()
+    // userId: a.string()
   }).authorization(allow => [allow.owner()]),
 });
 
