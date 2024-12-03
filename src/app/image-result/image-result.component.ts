@@ -52,12 +52,8 @@ export class ImageResultComponent {
     }
     if (this.result.category == 0) {
       return "No cancer detected!";
-    } else if (this.result.category == 1) {
-      return "Low cancer detected."
-    } else if (this.result.category == 2) {
-      return "Moderate cancer detected."
     } else {
-      return "High cancer detected.";
+      return this.result.text + " cancer detected.";
     }
   }
 
