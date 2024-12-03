@@ -1,3 +1,3 @@
 export const environment = {
-    api_url: 'http://ec2-52-90-57-19.compute-1.amazonaws.com'
+    api_url: 'https://cancer-image-detection-429716415798.us-central1.run.app'
 };
